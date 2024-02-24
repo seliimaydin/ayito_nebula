@@ -1,0 +1,442 @@
+#mask { 
+  position: absolute; 
+  bottom: 5em; 
+  right: 2em; 
+  text-decoration: none; 
+  color: white; 
+  background-color: #F05022; 
+  font-size: 20px; 
+  padding: 1em; 
+  display: none; 
+  z-index: 9999; 
+  cursor: pointer; 
+} 
+ 
+#popup .window { 
+  position: fixed; 
+  left: 10; 
+  top: 10; 
+  width: 100%; 
+  height: auto; 
+  max-width: 700px; 
+  display: none; 
+  z-index: 9999; 
+  padding: 0px; 
+  text-align: center; 
+  background-color: #000; 
+   
+} 
+.close { 
+  float: right; 
+  font-size: 1.5rem; 
+  font-weight: 700; 
+  line-height: 1; 
+  color: #000; 
+  text-shadow: 0 1px 0 #fff; 
+  opacity: .5; 
+} 
+ 
+#popup #dialog { 
+  width: 100%; 
+  height: auto; 
+  min-width: 600px; 
+  padding: 0px; 
+  background-color: #ffffff; 
+ 
+  box-shadow: 0 2px 17px 0 rgba(0, 0, 0, 0.50); 
+  border-radius: 15px; 
+  color: #737373; 
+ 
+} 
+ 
+ 
+#popup_icerik { 
+  font-family: "Segoe UI", sans-serif; 
+  font-size: 12pt; 
+  text-align: left; 
+} 
+ 
+#popupfoot { 
+  font-family: "Now", sans-serif; 
+  font-size: 16pt; 
+  padding: 10px 20px; 
+ 
+} 
+ 
+#popupfoot a { 
+  text-decoration: none; 
+  padding: 5px 10px 5px 10px; 
+  word-spacing: pre; 
+} 
+ 
+ 
+.pop__btn button{ 
+  background-color: #18d26e; 
+  border: none; 
+  border-radius: 10px; 
+  margin-top: 15px; 
+  margin-bottom: 15px; 
+ 
+} 
+ 
+.agree:hover { 
+ 
+  color: #FFF; 
+} 
+ 
+ 
+.popupoption:hover { 
+  background-color: #000; 
+  color: #555555; 
+  padding: 5px; 
+ 
+} 
+ 
+.popupoption2:hover { 
+  color: black; 
+  transition: .3s; 
+} 
+ 
+.web{ 
+  text-align: left; 
+  margin-left: 15px; 
+  font-weight: 500; 
+  font-size: 17px; 
+  padding-bottom: 2.5px; 
+  margin-top: 1.5px; 
+ 
+}
+
+@media screen and (max-width: 657px) {
+    
+#mask { 
+  position: absolute; 
+  bottom: 5em; 
+  right: 2em; 
+  text-decoration: none; 
+  color: white; 
+  background-color: #F05022; 
+  font-size: 20px; 
+  padding: 1em; 
+  display: none; 
+  z-index: 9999; 
+  cursor: pointer; 
+} 
+ 
+#popup .window { 
+  position: fixed; 
+  left: 10; 
+  top: 10; 
+  width: 100%; 
+  height: auto; 
+  max-width: 500px; 
+  display: none; 
+  z-index: 9999; 
+  padding: 0px; 
+  text-align: center; 
+  background-color: #000; 
+   
+} 
+.close { 
+  float: right; 
+  font-size: 1.5rem; 
+  font-weight: 700; 
+  line-height: 1; 
+  color: #000; 
+  text-shadow: 0 1px 0 #fff; 
+  opacity: .5; 
+} 
+ 
+#popup #dialog { 
+  width: 100%; 
+  height: auto; 
+  min-width: 500px; 
+  padding: 0px; 
+  background-color: #ffffff; 
+ 
+  box-shadow: 0 2px 17px 0 rgba(0, 0, 0, 0.50); 
+  border-radius: 15px; 
+  color: #737373; 
+ 
+} 
+ 
+ 
+#popup_icerik { 
+  font-family: "Segoe UI", sans-serif; 
+  font-size: 12pt; 
+  text-align: left; 
+} 
+ 
+#popupfoot { 
+  font-family: "Now", sans-serif; 
+  font-size: 16pt; 
+  padding: 10px 20px; 
+ 
+} 
+ 
+#popupfoot a { 
+  text-decoration: none; 
+  padding: 5px 10px 5px 10px; 
+  word-spacing: pre; 
+} 
+ 
+ 
+.pop__btn button{ 
+  background-color: #18d26e; 
+  border: none; 
+  border-radius: 10px; 
+  margin-top: 15px; 
+  margin-bottom: 15px; 
+ 
+} 
+ 
+.agree:hover { 
+ 
+  color: #FFF; 
+} 
+ 
+ 
+.popupoption:hover { 
+  background-color: #000; 
+  color: #555555; 
+  padding: 5px; 
+ 
+} 
+ 
+.popupoption2:hover { 
+  color: black; 
+  transition: .3s; 
+} 
+ 
+.web{ 
+  text-align: left; 
+  margin-left: 15px; 
+  font-weight: 500; 
+  font-size: 17px; 
+  padding-bottom: 2.5px; 
+  margin-top: 1.5px; 
+ 
+}
+}
+@media screen and (max-width:500px) {
+    
+#mask { 
+  position: absolute; 
+  bottom: 5em; 
+  right: 2em; 
+  text-decoration: none; 
+  color: white; 
+  background-color: #F05022; 
+  font-size: 20px; 
+  padding: 1em; 
+  display: none; 
+  z-index: 9999; 
+  cursor: pointer; 
+} 
+ 
+#popup .window { 
+  position: fixed; 
+  left: 10; 
+  top: 10; 
+  width: 100%; 
+  height: auto; 
+  max-width: 375px; 
+  display: none; 
+  z-index: 9999; 
+  padding: 0px; 
+  text-align: center; 
+  background-color: #000; 
+   
+} 
+.close { 
+  float: right; 
+  font-size: 1.5rem; 
+  font-weight: 700; 
+  line-height: 1; 
+  color: #000; 
+  text-shadow: 0 1px 0 #fff; 
+  opacity: .5; 
+} 
+ 
+#popup #dialog { 
+  width: 100%; 
+  height: auto; 
+  min-width: 375px; 
+  padding: 0px; 
+  background-color: #ffffff; 
+ 
+  box-shadow: 0 2px 17px 0 rgba(0, 0, 0, 0.50); 
+  border-radius: 15px; 
+  color: #737373; 
+ 
+} 
+ 
+ 
+#popup_icerik { 
+  font-family: "Segoe UI", sans-serif; 
+  font-size: 12pt; 
+  text-align: left; 
+} 
+ 
+#popupfoot { 
+  font-family: "Now", sans-serif; 
+  font-size: 16pt; 
+  padding: 10px 20px; 
+ 
+} 
+ 
+#popupfoot a { 
+  text-decoration: none; 
+  padding: 5px 10px 5px 10px; 
+  word-spacing: pre; 
+} 
+ 
+ 
+.pop__btn button{ 
+  background-color: #18d26e; 
+  border: none; 
+  border-radius: 10px; 
+  margin-top: 15px; 
+  margin-bottom: 15px; 
+ 
+} 
+ 
+.agree:hover { 
+ 
+  color: #FFF; 
+} 
+ 
+ 
+.popupoption:hover { 
+  background-color: #000; 
+  color: #555555; 
+  padding: 5px; 
+ 
+} 
+ 
+.popupoption2:hover { 
+  color: black; 
+  transition: .3s; 
+} 
+ 
+.web{ 
+  text-align: left; 
+  margin-left: 15px; 
+  font-weight: 500; 
+  font-size: 17px; 
+  padding-bottom: 2.5px; 
+  margin-top: 1.5px; 
+ 
+}
+}
+@media screen and (max-width:370px) {
+    
+#mask { 
+  position: absolute; 
+  bottom: 5em; 
+  right: 2em; 
+  text-decoration: none; 
+  color: white; 
+  background-color: #F05022; 
+  font-size: 20px; 
+  padding: 1em; 
+  display: none; 
+  z-index: 9999; 
+  cursor: pointer; 
+} 
+ 
+#popup .window { 
+  position: fixed; 
+  left: 10; 
+  top: 10; 
+  width: 100%; 
+  height: auto; 
+  max-width: 300px; 
+  display: none; 
+  z-index: 9999; 
+  padding: 0px; 
+  text-align: center; 
+  background-color: #000; 
+   
+} 
+.close { 
+  float: right; 
+  font-size: 1.5rem; 
+  font-weight: 700; 
+  line-height: 1; 
+  color: #000; 
+  text-shadow: 0 1px 0 #fff; 
+  opacity: .5; 
+} 
+ 
+#popup #dialog { 
+  width: 100%; 
+  height: auto; 
+  min-width: 300px; 
+  padding: 0px; 
+  background-color: #ffffff; 
+ 
+  box-shadow: 0 2px 17px 0 rgba(0, 0, 0, 0.50); 
+  border-radius: 15px; 
+  color: #737373; 
+ 
+} 
+ 
+ 
+#popup_icerik { 
+  font-family: "Segoe UI", sans-serif; 
+  font-size: 12pt; 
+  text-align: left; 
+} 
+ 
+#popupfoot { 
+  font-family: "Now", sans-serif; 
+  font-size: 16pt; 
+  padding: 10px 20px; 
+ 
+} 
+ 
+#popupfoot a { 
+  text-decoration: none; 
+  padding: 5px 10px 5px 10px; 
+  word-spacing: pre; 
+} 
+ 
+ 
+.pop__btn button{ 
+  background-color: #18d26e; 
+  border: none; 
+  border-radius: 10px; 
+  margin-top: 15px; 
+  margin-bottom: 15px; 
+ 
+} 
+ 
+.agree:hover { 
+ 
+  color: #FFF; 
+} 
+ 
+ 
+.popupoption:hover { 
+  background-color: #000; 
+  color: #555555; 
+  padding: 5px; 
+ 
+} 
+ 
+.popupoption2:hover { 
+  color: black; 
+  transition: .3s; 
+} 
+ 
+.web{ 
+  text-align: left; 
+  margin-left: 15px; 
+  font-weight: 500; 
+  font-size: 17px; 
+  padding-bottom: 2.5px; 
+  margin-top: 1.5px; 
+ 
+}
+}

@@ -1,0 +1,1 @@
+[22-Apr-2023 22:28:01 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/sel1acydinncom/public_html/ayito/Panel/netting/user.php on line 157
