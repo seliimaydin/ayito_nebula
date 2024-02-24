@@ -11,7 +11,7 @@ if (@$_GET['status']=="unsuccessful") {?>
 <?php } elseif (@$_GET['status']=="successful") {?>
 
     <div class="alert alert-success text-center">
-        <strong>Başarılı!</strong> Mesajınız bize ulaştı.
+        <strong>Başarılı!</strong> Mesajınız bize ulaştı!
     </div>
 <?php  }?>
 
