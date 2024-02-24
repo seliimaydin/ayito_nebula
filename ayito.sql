@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Anamakine: localhost:3306
--- Üretim Zamanı: 13 Ara 2023, 10:39:02
--- Sunucu sürümü: 8.0.35
--- PHP Sürümü: 8.1.25
+-- Anamakine: localhost
+-- Üretim Zamanı: 24 Şub 2024, 15:01:27
+-- Sunucu sürümü: 8.0.17
+-- PHP Sürümü: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -28,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `ayar` (
-  `ayarid` int NOT NULL,
+  `ayarid` int(11) NOT NULL,
   `ayarlogo` varchar(300) NOT NULL,
   `baslik` varchar(300) NOT NULL,
   `aciklama` text NOT NULL,
@@ -51,7 +52,7 @@ CREATE TABLE `ayar` (
 --
 
 INSERT INTO `ayar` (`ayarid`, `ayarlogo`, `baslik`, `aciklama`, `email`, `telefon`, `adres`, `facebook`, `instagram`, `twitter`, `youtube`, `linkedin`, `keyword`, `fav`, `logoyu`, `logoa`) VALUES
-(2, 'IspartaEmlak', 'AYİTO | Nebula Technology', ', toplu yemek yapılan yerlerdeki yemek israfını sıfıra indiren ve yemekhane sahibi kurum veya şirkete maddi kâr sağlayan web sitesi ve yemek dağıtım sisteminden oluşmaktadır.', 'selimaydinresmi@gmail.com', '05422178590', 'Konya', '', 'https://www.instagram.com/nebula.technology/?hl=tr', '', 'https://www.youtube.com/@selimaydinn', 'https://www.linkedin.com/company/nebulatechnology/', 'nebula, nebula technology, israf, yemek, gıda.', '250292367227547ms-icon-150x150.png', '264742396925277klassy-logo.png', '237082209728543white-logo.png');
+(2, 'IspartaEmlak', 'AYİTO | Nebula Technology', ', toplu yemek yapılan yerlerdeki yemek israfını sıfıra indiren ve yemekhane sahibi kurum veya şirkete maddi kâr sağlayan web sitesi ve yemek dağıtım sisteminden oluşmaktadır.', 'selimaydinresmi@gmail.com', '0', 'Sakarya / Türkiye', '', 'https://www.instagram.com/nebula.technology/?hl=tr', '', 'https://www.youtube.com/@selimaydinn', 'https://www.linkedin.com/company/nebulatechnology/', 'nebula, nebula technology, israf, yemek, gıda.', '250292367227547ms-icon-150x150.png', '264742396925277klassy-logo.png', '237082209728543white-logo.png');
 
 -- --------------------------------------------------------
 
@@ -60,7 +61,7 @@ INSERT INTO `ayar` (`ayarid`, `ayarlogo`, `baslik`, `aciklama`, `email`, `telefo
 --
 
 CREATE TABLE `cevap` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `cevap_bir_bir` varchar(200) DEFAULT NULL,
   `cevap_bir_iki` varchar(200) NOT NULL,
   `cevap_bir_uc` varchar(200) NOT NULL,
@@ -124,30 +125,30 @@ INSERT INTO `cevap` (`id`, `cevap_bir_bir`, `cevap_bir_iki`, `cevap_bir_uc`, `ce
 --
 
 CREATE TABLE `demo_ihtiyachesap` (
-  `demokullanici_id` int NOT NULL,
-  `subMerchantKey` varchar(500) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_magaza` enum('0','1','2') CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL DEFAULT '0',
-  `kullanici_magazafoto` varchar(500) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL DEFAULT 'dimg/magaza-fotoyok.png',
+  `demokullanici_id` int(11) NOT NULL,
+  `subMerchantKey` varchar(500) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_magaza` enum('0','1','2') CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '0',
+  `kullanici_magazafoto` varchar(500) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT 'dimg/magaza-fotoyok.png',
   `demokullanici_zaman` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `kullanici_resim` varchar(250) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_tc` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_banka` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_iban` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT NULL,
-  `demokullanici_ad` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `demokullanici_soyad` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `demokullanici_mail` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `demokullanici_gsm` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `demokullanici_password` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_adres` varchar(250) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_il` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_ilce` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_unvan` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_tip` enum('PERSONAL','PRIVATE_COMPANY','LIMITED_OR_JOINT_STOCK_COMPANY','') CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT 'PERSONAL',
-  `kullanici_vdaire` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_vno` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `demokullanici_yetki` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `demokullanici_durum` int NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_turkish_ci;
+  `kullanici_resim` varchar(250) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_tc` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_banka` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_iban` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `demokullanici_ad` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `demokullanici_soyad` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `demokullanici_mail` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `demokullanici_gsm` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `demokullanici_password` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_adres` varchar(250) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_il` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_ilce` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_unvan` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_tip` enum('PERSONAL','PRIVATE_COMPANY','LIMITED_OR_JOINT_STOCK_COMPANY','') CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT 'PERSONAL',
+  `kullanici_vdaire` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_vno` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `demokullanici_yetki` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `demokullanici_durum` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 -- --------------------------------------------------------
 
@@ -156,7 +157,7 @@ CREATE TABLE `demo_ihtiyachesap` (
 --
 
 CREATE TABLE `demo_ogrencihesap` (
-  `kullanici_id` int NOT NULL,
+  `kullanici_id` int(11) NOT NULL,
   `subMerchantKey` varchar(500) NOT NULL,
   `kullanici_magaza` enum('0','1','2') NOT NULL DEFAULT '0',
   `kullanici_magazafoto` varchar(500) NOT NULL DEFAULT 'dimg/magaza-fotoyok.png',
@@ -178,15 +179,8 @@ CREATE TABLE `demo_ogrencihesap` (
   `kullanici_vdaire` varchar(50) NOT NULL,
   `kullanici_vno` varchar(50) NOT NULL,
   `kullanici_yetki` varchar(50) NOT NULL,
-  `kullanici_durum` int NOT NULL DEFAULT '1'
+  `kullanici_durum` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Tablo döküm verisi `demo_ogrencihesap`
---
-
-INSERT INTO `demo_ogrencihesap` (`kullanici_id`, `subMerchantKey`, `kullanici_magaza`, `kullanici_magazafoto`, `kullanici_zaman`, `kullanici_resim`, `kullanici_tc`, `kullanici_banka`, `kullanici_iban`, `kullanici_ad`, `kullanici_soyad`, `kullanici_mail`, `kullanici_gsm`, `kullanici_password`, `kullanici_adres`, `kullanici_il`, `kullanici_ilce`, `kullanici_unvan`, `kullanici_tip`, `kullanici_vdaire`, `kullanici_vno`, `kullanici_yetki`, `kullanici_durum`) VALUES
-(188, '', '0', 'dimg/magaza-fotoyok.png', '2022-08-14 09:42:55', '', '', '', NULL, 'Babanne', 'Yiyenler', 'hitleroyunda@gmail.com', '', '9559abc957211086589d26975ff1e21c', '', '', '', '', 'PERSONAL', '', '', '0', 1);
 
 -- --------------------------------------------------------
 
@@ -195,7 +189,7 @@ INSERT INTO `demo_ogrencihesap` (`kullanici_id`, `subMerchantKey`, `kullanici_ma
 --
 
 CREATE TABLE `ihtiyac` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `kod` varchar(200) NOT NULL,
   `ihtiyac_bir_bir` varchar(200) NOT NULL,
   `ihtiyac_bir_iki` varchar(200) NOT NULL,
@@ -262,39 +256,37 @@ INSERT INTO `ihtiyac` (`id`, `kod`, `ihtiyac_bir_bir`, `ihtiyac_bir_iki`, `ihtiy
 --
 
 CREATE TABLE `ihtiyachesap` (
-  `ihtiyac_id` int NOT NULL,
-  `subMerchantKey` varchar(500) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_magaza` enum('0','1','2') CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL DEFAULT '0',
-  `ihtiyac_foto` varchar(500) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL DEFAULT 'img/fotoyok.png',
+  `ihtiyac_id` int(11) NOT NULL,
+  `subMerchantKey` varchar(500) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_magaza` enum('0','1','2') CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '0',
+  `ihtiyac_foto` varchar(500) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT 'img/fotoyok.png',
   `ihtiyac_zaman` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `kullanici_resim` varchar(250) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_tc` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_banka` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_iban` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT NULL,
-  `ihtiyac_ad` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `ihtiyac_soyad` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `ihtiyac_mail` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `ihtiyac_gsm` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `ihtiyac_password` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `ihtiyac_adres` varchar(250) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_il` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_ilce` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_unvan` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_tip` enum('PERSONAL','PRIVATE_COMPANY','LIMITED_OR_JOINT_STOCK_COMPANY','') CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT 'PERSONAL',
-  `kullanici_vdaire` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `kullanici_vno` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `ihtiyac_yetki` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `ihtiyac_durum` int NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_turkish_ci;
+  `kullanici_resim` varchar(250) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_tc` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_banka` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_iban` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `ihtiyac_ad` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `ihtiyac_soyad` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `ihtiyac_mail` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `ihtiyac_gsm` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `ihtiyac_password` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `ihtiyac_adres` varchar(250) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_il` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_ilce` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_unvan` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_tip` enum('PERSONAL','PRIVATE_COMPANY','LIMITED_OR_JOINT_STOCK_COMPANY','') CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT 'PERSONAL',
+  `kullanici_vdaire` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `kullanici_vno` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `ihtiyac_yetki` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `ihtiyac_durum` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `ihtiyachesap`
 --
 
 INSERT INTO `ihtiyachesap` (`ihtiyac_id`, `subMerchantKey`, `kullanici_magaza`, `ihtiyac_foto`, `ihtiyac_zaman`, `kullanici_resim`, `kullanici_tc`, `kullanici_banka`, `kullanici_iban`, `ihtiyac_ad`, `ihtiyac_soyad`, `ihtiyac_mail`, `ihtiyac_gsm`, `ihtiyac_password`, `ihtiyac_adres`, `kullanici_il`, `kullanici_ilce`, `kullanici_unvan`, `kullanici_tip`, `kullanici_vdaire`, `kullanici_vno`, `ihtiyac_yetki`, `ihtiyac_durum`) VALUES
-(170, '', '0', '290812947127860php.jpg', '2021-08-29 13:06:07', '', '', '', NULL, 'Bahri', 'Uranlı', 'root@gmail.com', '00', '597f72630405740005f0b03afb6ba400', '', '', '', '', 'PERSONAL', '', '', '1', 1),
-(171, '', '0', 'img/fotoyok.png', '2021-09-01 19:44:49', '', '', '', NULL, 'Selim', 'Aydın', 'selimaydin@gmail.com', '', '3dc231ebed3a7acc761a0df580608897', '', '', '', '', 'PERSONAL', '', '', '1', 1),
-(172, '', '0', 'img/fotoyok.png', '2022-06-27 17:38:33', '', '', '', NULL, 'Selim', 'AydÄ±n', 'selimaydin2020@gmail.com', '', '25f9e794323b453885f5181f1b624d0b', '', '', '', '', 'PERSONAL', '', '', '1', 1);
+(173, '', '0', 'img/fotoyok.png', '2024-02-21 23:40:00', '', '', '', NULL, 'Selim', 'Aydin', 'gdscsubu@nebulatechnology.com', '', '25f9e794323b453885f5181f1b624d0b', '', '', '', '', 'PERSONAL', '', '', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -303,7 +295,7 @@ INSERT INTO `ihtiyachesap` (`ihtiyac_id`, `subMerchantKey`, `kullanici_magaza`, 
 --
 
 CREATE TABLE `iletisim` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `baslik` varchar(200) NOT NULL,
   `mesaj` text NOT NULL,
   `email` varchar(222) NOT NULL,
@@ -330,7 +322,7 @@ INSERT INTO `iletisim` (`id`, `baslik`, `mesaj`, `email`, `konu`) VALUES
 --
 
 CREATE TABLE `kullanici` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `kad` varchar(250) NOT NULL,
   `sifre` varchar(200) NOT NULL,
   `adsoyad` varchar(200) NOT NULL,
@@ -346,7 +338,8 @@ INSERT INTO `kullanici` (`id`, `kad`, `sifre`, `adsoyad`, `yetki`) VALUES
 (19, 'roots', '5da1ef89425ba3720e2b878585d137c4', 'Bahri Uranlı', '1'),
 (20, 'rootss', '5da1ef89425ba3720e2b878585d137c4', 'Bahri Uranlı', '0'),
 (26, 'selim', '4e805fd8af281428f9cfa835762a3984', 'Selim AydÄ±n', '2'),
-(27, 'selimaydin2020@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'Selim AydÄ±n', '2');
+(27, 'selimaydin2020@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'Selim AydÄ±n', '2'),
+(28, 'gdscsubu@nebulatechnology.com', '25f9e794323b453885f5181f1b624d0b', 'Selim Aydin', '2');
 
 -- --------------------------------------------------------
 
@@ -355,7 +348,7 @@ INSERT INTO `kullanici` (`id`, `kad`, `sifre`, `adsoyad`, `yetki`) VALUES
 --
 
 CREATE TABLE `mesajlar` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `baslik` varchar(200) NOT NULL,
   `mesaj` text NOT NULL,
   `email` varchar(222) NOT NULL,
@@ -384,41 +377,37 @@ INSERT INTO `mesajlar` (`id`, `baslik`, `mesaj`, `email`, `konu`) VALUES
 --
 
 CREATE TABLE `ogrencihesap` (
-  `ogrenci_id` int NOT NULL,
-  `subMerchantKey` varchar(500) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT NULL,
-  `ogrenci_onay` enum('0','1','2') CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL DEFAULT '0',
-  `ogrenci_foto` varchar(500) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT 'img/fotoyok.png',
+  `ogrenci_id` int(11) NOT NULL,
+  `subMerchantKey` varchar(500) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `ogrenci_onay` enum('0','1','2') CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL DEFAULT '0',
+  `ogrenci_foto` varchar(500) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT 'img/fotoyok.png',
   `ogrenci_zaman` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `kullanici_resim` varchar(250) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT NULL,
-  `kullanici_tc` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT NULL,
-  `kullanici_banka` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT NULL,
-  `kullanici_iban` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT NULL,
-  `ogrenci_ad` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `ogrenci_soyad` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `ogrenci_mail` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `ogrenci_gsm` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT NULL,
-  `ogrenci_password` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci NOT NULL,
-  `ogrenci_adres` varchar(250) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT NULL,
-  `kullanici_il` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT NULL,
-  `kullanici_ilce` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT NULL,
-  `kullanici_unvan` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT NULL,
-  `kullanici_tip` enum('PERSONAL','PRIVATE_COMPANY','LIMITED_OR_JOINT_STOCK_COMPANY','') CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT 'PERSONAL',
-  `kullanici_vdaire` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT NULL,
-  `kullanici_vno` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT NULL,
-  `ogrenci_yetki` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_turkish_ci DEFAULT NULL,
-  `ogrenci_durum` int NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_turkish_ci;
+  `kullanici_resim` varchar(250) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `kullanici_tc` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `kullanici_banka` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `kullanici_iban` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `ogrenci_ad` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `ogrenci_soyad` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `ogrenci_mail` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `ogrenci_gsm` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `ogrenci_password` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
+  `ogrenci_adres` varchar(250) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `kullanici_il` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `kullanici_ilce` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `kullanici_unvan` varchar(100) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `kullanici_tip` enum('PERSONAL','PRIVATE_COMPANY','LIMITED_OR_JOINT_STOCK_COMPANY','') CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT 'PERSONAL',
+  `kullanici_vdaire` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `kullanici_vno` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `ogrenci_yetki` varchar(50) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT NULL,
+  `ogrenci_durum` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `ogrencihesap`
 --
 
 INSERT INTO `ogrencihesap` (`ogrenci_id`, `subMerchantKey`, `ogrenci_onay`, `ogrenci_foto`, `ogrenci_zaman`, `kullanici_resim`, `kullanici_tc`, `kullanici_banka`, `kullanici_iban`, `ogrenci_ad`, `ogrenci_soyad`, `ogrenci_mail`, `ogrenci_gsm`, `ogrenci_password`, `ogrenci_adres`, `kullanici_il`, `kullanici_ilce`, `kullanici_unvan`, `kullanici_tip`, `kullanici_vdaire`, `kullanici_vno`, `ogrenci_yetki`, `ogrenci_durum`) VALUES
-(192, '', '0', 'img/fotoyok.png', '2021-09-01 19:44:37', '', '', '', NULL, 'Selim', 'Aydın', 'selimaydin2020@gmail.com', '', '25f9e794323b453885f5181f1b624d0b', '', '', '', '', 'PERSONAL', '', '', '1', 1),
-(194, '', '0', 'img/fotoyok.png', '2022-06-22 14:29:24', '', '', '', NULL, 'Selim', 'Aydın', 'selimaydin@gmail.com', '', '3dc231ebed3a7acc761a0df580608897', '', '', '', '', 'PERSONAL', '', '', '1', 1),
-(195, '', '0', 'img/fotoyok.png', '2022-06-27 17:36:41', '', '', '', NULL, 'Selim', 'Aydın', 'selimaydin@gmail.com', '', '3dc231ebed3a7acc761a0df580608897', '', '', '', '', 'PERSONAL', '', '', '1', 1),
-(196, '', '0', 'img/fotoyok.png', '2022-06-27 17:37:53', '', '', '', NULL, 'Selim', 'Aydın', 'selimaydin@gmail.com', '', '3dc231ebed3a7acc761a0df580608897', '', '', '', '', 'PERSONAL', '', '', '1', 1),
-(197, '', '0', 'img/fotoyok.png', '2022-08-14 09:34:03', '', '', '', NULL, 'Selim', 'Aydın', 'selimaydin@gmail.com', '', '3dc231ebed3a7acc761a0df580608897', '', '', '', '', 'PERSONAL', '', '', '1', 1);
+(198, NULL, '0', 'img/fotoyok.png', '2024-02-21 23:39:51', NULL, NULL, NULL, NULL, 'Selim', 'Aydin', 'gdscsubu@nebulatechnology.com', '', '25f9e794323b453885f5181f1b624d0b', NULL, NULL, NULL, NULL, 'PERSONAL', NULL, NULL, '1', 1);
 
 -- --------------------------------------------------------
 
@@ -427,12 +416,12 @@ INSERT INTO `ogrencihesap` (`ogrenci_id`, `subMerchantKey`, `ogrenci_onay`, `ogr
 --
 
 CREATE TABLE `sponsor` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `resim` varchar(250) NOT NULL,
   `baslik` varchar(250) NOT NULL,
   `aciklama` text NOT NULL,
   `emlaktipi` varchar(250) NOT NULL,
-  `sira` int NOT NULL
+  `sira` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -450,7 +439,7 @@ INSERT INTO `sponsor` (`id`, `resim`, `baslik`, `aciklama`, `emlaktipi`, `sira`)
 --
 
 CREATE TABLE `veri` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `cevap_bir_bir` varchar(200) NOT NULL,
   `cevap_bir_iki` varchar(200) NOT NULL,
   `cevap_bir_uc` varchar(200) NOT NULL,
@@ -498,7 +487,7 @@ INSERT INTO `veri` (`id`, `cevap_bir_bir`, `cevap_bir_iki`, `cevap_bir_uc`, `cev
 --
 
 CREATE TABLE `veriihtiyac` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `kod` varchar(200) NOT NULL,
   `ihtiyac_bir_bir` varchar(200) NOT NULL,
   `ihtiyac_bir_iki` varchar(200) NOT NULL,
@@ -552,7 +541,7 @@ INSERT INTO `veriihtiyac` (`id`, `kod`, `ihtiyac_bir_bir`, `ihtiyac_bir_iki`, `i
 --
 
 CREATE TABLE `yemek` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `yemek_bir_bir` varchar(200) NOT NULL,
   `yemek_bir_iki` varchar(200) NOT NULL,
   `yemek_bir_uc` varchar(200) NOT NULL,
@@ -686,73 +675,73 @@ ALTER TABLE `yemek`
 -- Tablo için AUTO_INCREMENT değeri `cevap`
 --
 ALTER TABLE `cevap`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `demo_ihtiyachesap`
 --
 ALTER TABLE `demo_ihtiyachesap`
-  MODIFY `demokullanici_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
+  MODIFY `demokullanici_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `demo_ogrencihesap`
 --
 ALTER TABLE `demo_ogrencihesap`
-  MODIFY `kullanici_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=189;
+  MODIFY `kullanici_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `ihtiyac`
 --
 ALTER TABLE `ihtiyac`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `ihtiyachesap`
 --
 ALTER TABLE `ihtiyachesap`
-  MODIFY `ihtiyac_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
+  MODIFY `ihtiyac_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `iletisim`
 --
 ALTER TABLE `iletisim`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `kullanici`
 --
 ALTER TABLE `kullanici`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `mesajlar`
 --
 ALTER TABLE `mesajlar`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `ogrencihesap`
 --
 ALTER TABLE `ogrencihesap`
-  MODIFY `ogrenci_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
+  MODIFY `ogrenci_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `sponsor`
 --
 ALTER TABLE `sponsor`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `veri`
 --
 ALTER TABLE `veri`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `veriihtiyac`
 --
 ALTER TABLE `veriihtiyac`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
